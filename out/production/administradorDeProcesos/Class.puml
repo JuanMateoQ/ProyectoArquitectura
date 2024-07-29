@@ -1,0 +1,56 @@
+@startuml
+
+class Main {
+  + main(String[] args)
+}
+
+class Binario {
+  - numeroBinario: String
+  + Binario(int numeroEntero)
+  + getNumeroBinario(): String
+  - convertir(int num): String
+}
+
+class Clase1 {
+  + boothMultiplication(String multiplicand, String multiplier): String
+  - addBinaryStrings(String str1, String str2): String
+  - twosComplement(String str): String
+  - arithmeticRightShift(String str): String
+  - convertBinaryToDecimal(String binaryString): int
+  + convertir(int num): String
+  + exponencial(String numeroBinario, String numeroBinario1): String
+}
+
+class Clase3 {
+  + sumarDosNúmerosBinarios(String sumando1, String sumando2): String
+  + multiplicarSinBooth(String factor1, String factor2): String
+  + exponenciacionRapida(String base, int exponente): String
+}
+
+class Instrucciones {
+  - listaDeResultadosInstruciones: ArrayList<String>
+  + Instrucciones()
+  + realizarInstrucción(int contadorDeInstrucciones, AtomicInteger AC1, AtomicInteger AC2, String numA, String numB): String
+  + asignarEspacioDeMemoriaPC(AtomicInteger IR, int contadorDeInstrucciones)
+}
+
+class Procesador {
+  - PC: int
+  - AC1: AtomicInteger
+  - AC2: AtomicInteger
+  - IR: AtomicInteger
+  - instrucciones: Instrucciones
+  + Procesador()
+  + empezarContadorDelPC(String numA, String numB)
+}
+
+Main ..> Binario
+Main ..> Clase1
+Main ..> Clase3
+Main ..> Procesador
+
+Clase1 ..> Clase3
+
+Procesador ..> Instrucciones
+
+@enduml
